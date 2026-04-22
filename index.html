@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A read on where AI fits in BloomX's stack, and where it doesn't.</title>
+<meta name="description" content="Saw the 2025 recap. 1,300 hectares, five continents, 27% avocado yield lift in Peru and Mexico. A hypothesis about where the bloom-prediction model starts to crack.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-wrap">
+    <a class="logo" href="https://bloomx.ag" target="_blank" rel="noopener" aria-label="BloomX">
+      <img src="logo.svg" alt="BloomX" width="152" height="40">
+    </a>
+    <span class="header-meta">Prepared for BloomX &middot; eMerge Americas 2026 &middot; Booth 525</span>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker">A note left at Booth 525</p>
+    <h1>A read on where AI fits in BloomX's stack, and where it doesn&rsquo;t.</h1>
+    <p class="deck">
+      You pollinated 1,300 hectares across five continents in 2025, three times what you did the year before. Growers reported avocado yield up to 27% higher and more uniform blueberries. YAHAV 2400 is about to ship into large orchards in 2026. That is a lot of new surface area for a forecast model, a grower portal, and a field ops team that runs in four countries. This page is a short read on how we would think about that seam.
+    </p>
+    <div class="stat-row">
+      <div class="stat">
+        <span class="stat-num">1,300</span>
+        <span class="stat-label">hectares pollinated in 2025</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">5</span>
+        <span class="stat-label">continents, one ops team</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">27%</span>
+        <span class="stat-label">avocado yield lift reported</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">&gt;90%</span>
+        <span class="stat-label">bloom-window accuracy claimed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="frame">
+  <div class="wrap two-col">
+    <div class="col-lead">
+      <p class="section-eyebrow">The Eduba frame</p>
+      <h2>Computational orchestration, applied to pollination.</h2>
+    </div>
+    <div class="col-body">
+      <p>Most teams shipping AI into the field put too much of the problem on the model. In our experience, about 60% of what looks like an AI problem is traditional software and database work. About 30% is rule-based logic, which here means crop calendars, grower contracts, and regional regulatory differences. Only about 10% is genuinely an AI problem, and that is where the bloom-prediction model actually lives.</p>
+      <p>We call that layered read <strong>computational orchestration</strong>. Applied to BloomX, it means the forecast model stays narrow and interpretable, the portal stays a decision system rather than a dashboard, and the operators in Peru can read the Israel team's runbooks without a translation step.</p>
+      <p class="pull">The question we would start with is not &ldquo;how do we make the model better.&rdquo; It is what has to be true in the portal and the ops stack so the model can stay the model.</p>
+    </div>
+  </div>
+</section>
+
+<section class="layers">
+  <div class="wrap">
+    <p class="section-eyebrow">How the seam breaks down</p>
+    <h2>The 60 / 30 / 10 read on BloomX&rsquo;s stack.</h2>
+    <div class="layer-grid">
+      <article class="layer">
+        <div class="layer-bar bar-60"><span>60%</span></div>
+        <h3>Traditional software and data</h3>
+        <p>Grower Portal 3.0. Plot records. Telemetry from the YAHAV fleet. Multi-region crop calendars. The portal earns grower trust when it explains <em>why</em> a window was picked, not just <em>that</em> one was picked. That is an interpretability problem. It is solved in the schema, not the model.</p>
+      </article>
+      <article class="layer">
+        <div class="layer-bar bar-30"><span>30%</span></div>
+        <h3>Rule-based logic</h3>
+        <p>Grower contracts. Regional regulatory surfaces across Peru, Mexico, Israel, and South Africa. Varietal-specific bloom biology on blueberry, avocado, and (next) almond, macadamia, mango. Deterministic rules. They do not belong inside an LLM.</p>
+      </article>
+      <article class="layer">
+        <div class="layer-bar bar-10"><span>10%</span></div>
+        <h3>Genuine AI</h3>
+        <p>Bloom-window prediction. Branch-aware arm motion. The narrow slice where statistical models actually earn their keep. Kept narrow, these stay auditable and reproducible season to season. Widened prematurely, they become the single point of failure for grower trust.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="hypothesis">
+  <div class="wrap">
+    <p class="section-eyebrow">The hypothesis we would test first</p>
+    <div class="hyp-body">
+      <p class="big-line">
+        When YAHAV 2400 ships and the hectare count triples again, the bloom-prediction model becomes the single point of grower trust. The orchestration layer around that model is what either earns that trust or loses it.
+      </p>
+      <ul class="hyp-list">
+        <li><span class="bullet"></span><p>Forecast inputs, forecast outputs, and execution telemetry are not yet separated by a disciplined layer architecture. One bad season collapses grower trust.</p></li>
+        <li><span class="bullet"></span><p>Grower Portal 3.0 is on the 2026 roadmap. Growers need to understand why a window was picked. That is an interpretability problem, not a UI problem.</p></li>
+        <li><span class="bullet"></span><p>Multi-country field ops run on a small team. The COO is the single point of contextual knowledge. That is an orchestration failure waiting to happen as territory grows faster than headcount.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="casestudy">
+  <div class="wrap two-col">
+    <div class="col-lead">
+      <p class="section-eyebrow">The relevant case study</p>
+      <h2>Feeld. A product company. A CTO buyer. A bounded sprint.</h2>
+    </div>
+    <div class="col-body">
+      <p>Their CTO Andrew Santus bought a scoped sprint with us last year: a workshop, four advisory calls, an Organizational Context Architecture, and a Strategic Operations Framework. The outcome that mattered was not the deliverables. It was that six months later the product team was still using the context architecture to onboard new engineers and resolve cross-functional decisions without another call to us.</p>
+      <p>That is the engagement shape we would propose here. Bounded scope. Methodology transfer. A context architecture that keeps working after we leave.</p>
+    </div>
+  </div>
+</section>
+
+<section class="paper">
+  <div class="wrap">
+    <p class="section-eyebrow">The relevant paper</p>
+    <h2>Interpretable Context Methodology: Folder Structure as Agent Architecture.</h2>
+    <p>Submitted to ACM TiiS. A layered filesystem (L0 identity through L4 working artifacts) with measurable interpretability and reproducibility gains. Directly applicable to a forecast stack that has to stay auditable season after season.</p>
+    <p class="paper-link">
+      <a href="https://github.com/RinDig/Interpretable-Context-Methodology-ICM-" target="_blank" rel="noopener">github.com/RinDig/Interpretable-Context-Methodology-ICM-</a>
+    </p>
+  </div>
+</section>
+
+<section class="partner">
+  <div class="wrap">
+    <p class="section-eyebrow">On the work that sits below our layer</p>
+    <p class="partner-body">
+      If the bloom-prediction model moves from a clean 90%-on-blueberries to field-grade model quality under Series A diligence, that is pipeline, monitoring, and MLOps work. Eduba partners with <strong>NLP Logix</strong> for work that sits below the orchestration layer. NLP Logix has been in machine learning since 2011 and runs over 150 data scientists. They plug in under our frame when the engagement calls for it.
+    </p>
+  </div>
+</section>
+
+<section class="cta" id="cta">
+  <div class="wrap cta-wrap">
+    <p class="section-eyebrow">The call to action</p>
+    <h2>30 minutes with Matt.</h2>
+    <p class="cta-body">
+      Bring the current portal and one decision the ops team had to chase down by phone this season. We will do a live orchestration audit on the call. No slides.
+    </p>
+    <a class="cta-button" href="https://calendly.com/thecro-eduba/30min" target="_blank" rel="noopener">
+      Book a slot with Matt Creamer
+      <span class="cta-arrow" aria-hidden="true">&rarr;</span>
+    </a>
+    <p class="cta-sub">Matt Creamer, CRO, Eduba. <a href="https://calendly.com/thecro-eduba/30min" target="_blank" rel="noopener">calendly.com/thecro-eduba/30min</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-wrap">
+    <p class="prep">Prepared by Eduba, <a href="https://eduba.io" target="_blank" rel="noopener">eduba.io</a></p>
+    <p class="prep-sub">Written in BloomX&rsquo;s voice for a conversation at Booth 525. Not an official BloomX communication.</p>
+  </div>
+</footer>
+
+</body>
+</html>
